@@ -11,20 +11,17 @@ class BookAPITests {
     private lateinit var client: Retrofit
     private lateinit var api: BookAPI
 
-    @BeforeMethod
-    fun setUp() {
+    @BeforeMethod fun setUp() {
         client = RetrofitClientProvider.provide()
         api = client.create(BookAPI::class.java)
     }
 
-    @Test
-    fun `Fetch all books`() = runBlocking {
+    @Test fun `Fetch all books`() = runBlocking {
         val books = api.all()
         assertThat(books).isNotEmpty()
     }
 
-    @Test
-    fun `Find Book by ID`() = runBlocking {
+    @Test fun `Find Book by ID`() = runBlocking {
         val book = api.find(1)
         assertThat(book.id).isEqualTo(1)
     }
