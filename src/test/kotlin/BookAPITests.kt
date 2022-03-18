@@ -26,7 +26,6 @@ class BookAPITests {
     @Test
     fun `Find Book by ID`() = runBlocking {
         val book = api.find(1)
-        assertThat(book).isNotNull()
         assertThat(book.id).isEqualTo(1)
     }
 }
