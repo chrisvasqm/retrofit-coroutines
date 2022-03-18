@@ -1,6 +1,6 @@
 package network
 
-import model.Book
+import data.model.Book
 import retrofit2.http.GET
 import retrofit2.http.Path
 

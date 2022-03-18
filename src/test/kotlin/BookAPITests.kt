@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 import retrofit2.Retrofit
 
-class BookServiceTests {
+class BookAPITests {
 
     private lateinit var client: Retrofit
     private lateinit var api: BookAPI
