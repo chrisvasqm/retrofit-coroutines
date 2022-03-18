@@ -5,7 +5,6 @@ import network.RetrofitClientProvider
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 import retrofit2.Retrofit
-import java.awt.print.Book
 
 class BookServiceTests {
 
@@ -19,13 +18,13 @@ class BookServiceTests {
     }
 
     @Test
-    fun all_ReturnsBooks() = runBlocking {
+    fun `Fetch all books`() = runBlocking {
         val books = api.all()
         assertThat(books).isNotEmpty()
     }
 
     @Test
-    fun find_IdIsValid_ReturnsBook() = runBlocking {
+    fun `Find Book by ID`() = runBlocking {
         val book = api.find(1)
         assertThat(book).isNotNull()
         assertThat(book.id).isEqualTo(1)
