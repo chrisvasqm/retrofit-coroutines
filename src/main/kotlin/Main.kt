@@ -4,7 +4,7 @@ import network.BookService
 import network.RetrofitClientProvider
 
 fun main() {
-    val client = RetrofitClientProvider.provide()
+    val client = RetrofitClientProvider.instance
     val api = client.create(BookAPI::class.java)
     val repository = BookRepository(api)
     val service = BookService(repository)

@@ -5,11 +5,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClientProvider {
 
-    fun provide(): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl("https://simple-books-api.glitch.me")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
+    val instance: Retrofit = Retrofit.Builder()
+        .baseUrl("https://simple-books-api.glitch.me")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
 
 }

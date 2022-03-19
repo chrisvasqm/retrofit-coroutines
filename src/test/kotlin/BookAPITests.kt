@@ -12,7 +12,7 @@ class BookAPITests {
     private lateinit var api: BookAPI
 
     @BeforeMethod fun setUp() {
-        client = RetrofitClientProvider.provide()
+        client = RetrofitClientProvider.instance
         api = client.create(BookAPI::class.java)
     }
 
@@ -25,4 +25,5 @@ class BookAPITests {
         val book = api.find(1)
         assertThat(book.id).isEqualTo(1)
     }
+
 }
