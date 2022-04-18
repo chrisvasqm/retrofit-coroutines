@@ -8,10 +8,19 @@ fun main() {
     val api = client.create(BookAPI::class.java)
     val repository = BookRepository(api)
     val service = BookService(repository)
+    val id = -1
 
-    val book = service.find(1)
-    println(book)
+    println("Looking for Book by id: $id")
+    try {
+        println(service.find(id))
+    } catch (e: Exception) {
+        println("Could not find Book with id: $id")
+    }
 
-    val books = service.fetch()
-    books.forEach { println(it) }
+    println("Fetching all books: ")
+    try {
+        service.fetch()?.forEach { println(it) }
+    } catch (e: Exception) {
+        println("Something went wrong. Please check your internet access.")
+    }
 }
